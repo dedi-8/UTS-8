@@ -6,7 +6,8 @@
 		<div class="row mt-4">
 			<div class="col-md-8">
 				<h4><strong>{{$blog->judul}}</strong></h4><hr>
-				<p>{{$blog->isi}}</p>
+				<p>{{$blog->isi}}
+				</p>
 				<!--komentar-->
 				<div class="card">
 					<div class="container">

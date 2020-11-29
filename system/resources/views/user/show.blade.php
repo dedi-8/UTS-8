@@ -11,6 +11,7 @@
 					</div>
 					<div class="card-body">
 						<h4>Nama : {{$user->nama}}</h4><hr>
+						by :{{$blog->by->nama}}
 						<p>
 							{{"@".$user->username}} |
 							Email : {{$user->email}} |
