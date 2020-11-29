@@ -38,6 +38,7 @@ Route::get('logout',[AuthController:: class,'logout']);
 
 
 Route::prefix('admin')->middleware('auth')->group(function(){
+		Route::post('blog/filter', [BlogController:: class, 'filter']);
 		Route::get('blog',[BlogController:: class,'index']);
 		Route::get('blog/create',[BlogController:: class,'create']);
 		Route::post('blog',[BlogController:: class,'store']);

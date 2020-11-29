@@ -7,6 +7,21 @@
 			<div class="col-md-12">
 				<div class="card mt-4">
 					<div class="card">
+						<div class="card-header">
+							Filter
+						</div>
+						<div class="card-body">
+							<form action="{{url('admin/blog/filter')}}" method="post">
+								@csrf
+								<div class="form-group">
+									<label for="" class="control-label">Judul Artikel</label>
+									<input type="text" class="form-control" name="judul" value="{{$judul ?? ''}}">
+								</div>
+								<button class="btn btn-dark float-right">
+									<i class="fa fa-search">Filter</i>
+								</button>
+							</form>
+						</div>
 						
 					</div>
 					<div class="card-header">

@@ -5,8 +5,8 @@ use App\Blog;
 
 class BlogController extends controller{
 	function index(){
-		//$user = request()->user();
-		$data['list_blog'] = Blog::all();
+		$user = request()->user();
+		$data['list_blog'] =$user->blog;
 		return view('blog.index', $data);
 	}
 
@@ -15,7 +15,7 @@ class BlogController extends controller{
 	}
 	function store(){
 		$blog= new Blog;
-		//$produk-> id_user = request()->user()->id;
+		$blog-> id_user = request()->user()->id;
 		$blog-> judul = request('judul');
 		$blog-> isi = request('isi');
 		$blog->save();
@@ -40,6 +40,15 @@ class BlogController extends controller{
 	function destroy(Blog $blog){
 		$blog->delete();
 		return redirect('blog')->with('danger','Data berhasil dihapus');
+	}
+	function filter(){
+		$judul = request ('judul');
+		$data['list_blog'] = Blog::where('judul', 'like', "%$judul%")->get();
+		$data['list_blog'] = blog:: whereDate('created_at','2020-11-29')->get();
+		
+		$data['judul'] = $judul;
+
+		return view('blog.index', $data);
 	}
 	
 }
